@@ -1,0 +1,40 @@
+#####
+#  apiversion define your kubernetes resource library just like apps or networking 
+#  define example below in yaml file
+#  apiVersion: apps/v1
+#  apiVersion: networking.k8s.io/v1
+#####
+
+###
+# kind is define your particuler resource type wich you want deploy 
+# kind value would be like  Deployemnt, statefulsets, ingress, Nodes, Pod 
+# kind: Pod
+#####
+
+######
+# meta data section control your resources data and identification, name and namespaces 
+# in meta data declare application name, identies like labels and tag, namespace
+#metadata:
+#   name: myapp
+#   labels:
+#     name: myapp
+############
+
+###########
+# so spec section define your container pod and which resoource you want to deploy details
+# spec is contol your secrets, data volumes, resource limit, container running open port, etc.  
+# spec:
+#   containers:
+#   - name: myapp
+#     image: <Image>      ---------> docker image which will ruunning in container 
+#     resources:    --------------> define your hardware limitation for container 
+#       request:                 ** request is define right now how much resource like cpu ram consume 
+#          memory: "100Mi"        **** cpu cycle is 1000 mean 1 cpu , 2000 mean 2 cpu 
+#           cpu: "1000m"
+#       limits:                   ** once load increase it will took how much resource
+#         memory: "128Mi"
+#         cpu: "500m"
+#     ports:
+#       - containerPort: 80 ---------> that mean container serving request on pod port 80 
+#######################
+
