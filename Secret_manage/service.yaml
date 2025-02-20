@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgre-service
+  namespace: postgre
+  labels:
+    app: pgsql 
+    type: database
+spec:
+  selector:
+    app: pgsql 
+    type: database
+  type: NodePort
+  ports:
+  - nodePort: 31432
+    port: 5432
+    targetPort: 5432
