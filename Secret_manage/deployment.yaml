@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgre-app
+  namespace: postgre
+  labels:
+    app: pgsql 
+    type: database
+spec:
+  selector:
+    matchLabels:
+      app: pgsql
+      type: database
+  template:
+    metadata:
+      labels:
+        app: pgsql
+        type: database
+    spec:
+      containers:
+      - name: postgre
+        image: postgres
+        resources:
+          request: 
+             memory: "500Mi"
+             cpu: "1"
+          limits:
+            memory: "1000Mi"
+            cpu: "2"
+        ports:
+        - containerPort: 5432
+        env: 
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: postgre-secret
+                key: password

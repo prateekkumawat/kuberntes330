@@ -1,0 +1,9 @@
+####
+# Secret in kubernetes use to maintain senstive data. 
+#
+# 1. docker registry   2. tls      3. generic 
+# Using a Secret means that you don't need to include confidential data in your application code.
+#  Secrets can be created independently of the Pods that use them, there is less risk of the Secret 
+#(and its data) being exposed during the workflow of creating, viewing, and editing Pods.
+#
+############
