@@ -21,7 +21,7 @@ spec:
       - name: postgre
         image: postgres
         resources:
-          request: 
+          requests:
              memory: "500Mi"
              cpu: "1"
           limits:
