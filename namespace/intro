@@ -1,0 +1,44 @@
+###########
+namespace: it is help to create isolation and independent resoureces envioremnet. 
+namespace: every project and service create in namespace
+kubernetes using default namespace for create resource if you not mention namespace name; 
+kubernetes using kube-system for running control services.
+
+
+servicelimits: 
+when you apply pod deployment or any resources we define limits. 
+limits are define how many amount of ram and cpu your are currently allocated to system 
+
+
+resources:
+          requests:
+             memory: "500Mi"
+             cpu: "1"
+          limits:
+            memory: "1000Mi"
+            cpu: "2"
+
+
+requests its about min. reources right now allocated. 
+limits about highest uses when load increases. 
+
+cpu allocation is always define 1000 m ---- 1 cpu 
+
+lets calculate resource 
+
+task manager >  perfomance > check logical processor  4 cpu 
+total cpu ---- 4000 m 
+ram: 12 GB 
+
+700m or 0.7 cpu and 1000Mi ram
+
+
+this will help you to collect all matrics this is importent to install 
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+https://gist.github.com/jmutai/cda41a75d8f120c97545bef55c53a71c
+
+https://medium.com/@cloudspinx/fix-error-metrics-api-not-available-in-kubernetes-aa10766e1c2f
+
+kubectl top node and kubectl top pod -A
