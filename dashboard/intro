@@ -1,0 +1,44 @@
+Kubernetes dashboard is a  web ui Service. you can manage your kubernetes using webportal 
+1. kubernetes dashboard is a Opensource and web based 
+2. dashboard service is easy to manage resource in kubernetes 
+3. if you want to provide access no of users in that we can easily manage
+4. Developers are not comfortaable with commandline so easily manage resource
+
+1) Cluster overview
+
+Displays an overview of the entire Kubernetess cluster, including the number of nodes, namespaces, pods, and services.
+Provides a high-level summary of the cluster’s health and status.
+
+2) Resource monitoring
+
+Monitors resource utilization for nodes, pods, and containers.
+Displays CPU and memory usage metrics to help with resource management and optimization.
+
+Installation 
+
+1. kostmized method: 
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
+2. Helm Method 
+
+Helm is a package manager for kuberneetes. system install with helm command. 
+https://helm.sh/docs/intro/install/
+
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+
+$ helm version 
+
+
+*********Dashoard Installation 
+https://github.com/kubernetes/dashboard
+
+# Add kubernetes-dashboard repository
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+# Deploy a Helm Release named "kubernetes-dashboard" using the kubernetes-dashboard chart
+helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+
+# create user in dashboard service 
+https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
