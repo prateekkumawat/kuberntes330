@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: java
+  labels:
+    name: java
+spec:
+  containers:
+  - name: java
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+  nodeSelector: 
+    app: java
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webservices
+  labels:
+    name: webservices
+spec:
+  containers:
+  - name: webservices
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+  nodeSelector:
+    app: web
