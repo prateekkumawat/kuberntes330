@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-affinity-preferred-weight
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: node
+            operator: In
+            values:
+            - win
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: node
+            operator: In
+            values:
+            - win
+      - weight: 50
+        preference:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - java
+  containers:
+  - name: with-node-affinity
+    image: registry.k8s.io/pause:3.8
