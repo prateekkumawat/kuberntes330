@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: storagetest
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql
+        env: 
+        - name: MYSQL_ROOT_PASSWORD
+          value: redhat
+        - name: MYSQL_USER
+          value: prateek
+        - name: MYSQL_PASSWORD
+          value: redhat
+        - name: MYSQL_DATABASE
+          value: datadb   
+        ports:
+        - containerPort: 3306
+        resources:
+          requests:
+            cpu: 1
+            memory: "700M"
+          limits: 
+            cpu: 2
+            memory: "1500M"    
+        volumeMounts:
+          - name: datastore
+            mountPath: /var/lib/mysql/
+      volumes:
+        - name: datastore
+          persistentVolumeClaim:   
+            claimName: externalstoragepvc
