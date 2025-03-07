@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: wordpress
+  namespace: storagetest 
+spec:
+  selector:
+    app: wpapp
+  type: NodePort
+  ports:
+  - name: wp-port
+    port: 8080
+    targetPort: 80
+    nodePort: 31800

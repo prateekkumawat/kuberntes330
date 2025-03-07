@@ -10,3 +10,17 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: externalstoragewppvc
+  namespace: storagetest
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
