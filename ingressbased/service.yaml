@@ -5,9 +5,8 @@ metadata:
 spec:
   selector:
     app: finox
-  type: NodePort
+  type: ClusterIP
   ports:
   - name: finox-port
     port: 80
     targetPort: 80
-    nodePort: 32222
