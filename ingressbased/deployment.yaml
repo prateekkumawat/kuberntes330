@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finox
+spec:
+  selector:
+    matchLabels:
+      app: finox
+  template:
+    metadata:
+      labels:
+        app: finox
+    spec:
+      containers:
+      - name: finox
+        image: prateekkumawat/finexo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
