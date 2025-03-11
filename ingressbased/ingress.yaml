@@ -17,3 +17,12 @@ spec:
             name: finox-service
             port:
               number: 80
+  - http:
+      paths:
+      - path: /app2
+        pathType: Prefix
+        backend:
+          service:
+            name: test
+            port:
+              number: 80            
