@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rsapp
+  labels:
+    app: rsapp
+    key: rsapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      key: rsapp
+  template:
+    metadata:
+      labels:
+        key: rsapp
+    spec:
+      containers:
+        - name: rsapp
+          image: nginx
+          
